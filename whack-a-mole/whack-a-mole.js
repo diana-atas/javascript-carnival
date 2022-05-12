@@ -36,4 +36,11 @@ for (let i = 0; i < grid.length; i++) {
   }
 }
 
-console.log(grid)
+console.log(getRandomInt(0, 24))
+
+// -- GET RANDOM INT -- //
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
