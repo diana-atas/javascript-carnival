@@ -25,7 +25,6 @@ function showMole() {
   let randomCell = getRandomInt(0, cellCount - 1)
   let cell = document.getElementsByTagName('TD')[randomCell]
   let moleImage = document.getElementById('mole')
-  moleImage.src = 'mole.PNG'
   cell.appendChild(moleImage)
   moleImage.onclick = whackedMole
 
@@ -39,6 +38,8 @@ showMole()
 function whackedMole(e) {
   let cell = e.target
   console.log('you clicked the mole')
+  let moleSound = new Audio('whack-audio.wav')
+  moleSound.play()
   showMole()
 }
 
