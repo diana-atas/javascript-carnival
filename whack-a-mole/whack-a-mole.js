@@ -24,19 +24,48 @@ console.log('Whack-a-Mole!')
 
 let grid = new Array(5)
 let h = 0
+let cells = document.getElementsByTagName('TD')
 
 // -- 2D ARRAY -- //
 for (let i = 0; i < grid.length; i++) {
-  grid[i] = []
+  cells[i] = []
 }
 
 for (let i = 0; i < grid.length; i++) {
   for (let j = 0; j < grid.length; j++) {
-    grid[i][j] = h++
+    cells[i][j] = h++
   }
 }
 
-console.log(getRandomInt(0, 24))
+console.log(cells)
+
+function showMole() {
+  let randomCell = getRandomInt(0, h - 1)
+  let cell = document.getElementsByTagName('TD')[randomCell]
+  let moleImage = document.getElementById('mole')
+  moleImage.src = 'mole.PNG'
+  cell.appendChild(moleImage)
+  moleImage.onclick = whackedMole
+
+  console.log(randomCell)
+  // let currentText = document.createTextNode('random cell')
+  // cell.appendChild(currentText)
+}
+
+showMole()
+// console.log('cell.moleImage: ' + cell.moleImage)
+
+function whackedMole(e) {
+  let cell = e.target
+  console.log('you clicked the mole')
+  showMole()
+}
+
+// activeMole.onclick = whackedMole
+
+// console.log('h: ' + h)
+// console.log(grid)
+// console.log(randomCell)
 
 // -- GET RANDOM INT -- //
 function getRandomInt(min, max) {
