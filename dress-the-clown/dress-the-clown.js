@@ -58,7 +58,7 @@ document.addEventListener('keydown', function (e) {
       changeClownHead(headIndex)
       headIndex--
       break
-    case 'ArrowUp':
+    case 'ArrowDown':
       console.log('arrow up')
       if (clothingIndex >= clothingCount - 1) {
         clothingIndex = 0
@@ -67,7 +67,7 @@ document.addEventListener('keydown', function (e) {
       }
       console.log('clothing index = ' + clothingIndex)
       break
-    case 'ArrowDown':
+    case 'ArrowUp':
       console.log('arrow down')
       if (clothingIndex <= 0) {
         clothingIndex = clothingCount - 1
