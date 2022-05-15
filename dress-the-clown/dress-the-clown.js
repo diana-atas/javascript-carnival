@@ -26,8 +26,12 @@ console.log('Dress The Clown!')
 // refactor changeClownHead function to changeClothes function to change image for other body parts when respective clothingIndex is selected
 
 let head = document.getElementById('head')
+let body = document.getElementById('body')
+let shoes = document.getElementById('shoes')
 let imageCount = 6
+let clothingCount = 3
 let headIndex = 0
+let clothingIndex = 0
 // console.log(head)
 
 function changeClownHead(headIndex) {
@@ -40,13 +44,37 @@ document.addEventListener('keydown', function (e) {
   switch (e.key) {
     case 'ArrowRight':
       console.log('arrow right')
+      if (headIndex >= imageCount) {
+        headIndex = 0
+      }
       changeClownHead(headIndex)
       headIndex++
       break
     case 'ArrowLeft':
       console.log('arrow left')
+      if (headIndex <= 0) {
+        headIndex = imageCount - 1
+      }
       changeClownHead(headIndex)
       headIndex--
+      break
+    case 'ArrowUp':
+      console.log('arrow up')
+      if (clothingIndex >= clothingCount - 1) {
+        clothingIndex = 0
+      } else {
+        clothingIndex++
+      }
+      console.log('clothing index = ' + clothingIndex)
+      break
+    case 'ArrowDown':
+      console.log('arrow down')
+      if (clothingIndex <= 0) {
+        clothingIndex = clothingCount - 1
+      } else {
+        clothingIndex--
+      }
+      console.log('clothing index = ' + clothingIndex)
       break
   }
 })
