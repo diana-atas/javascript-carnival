@@ -35,3 +35,18 @@ function changeClownHead(headIndex) {
   console.log(headSrc)
   head.src = headSrc
 }
+
+document.addEventListener('keydown', function (e) {
+  switch (e.key) {
+    case 'ArrowRight':
+      console.log('arrow right')
+      changeClownHead(headIndex)
+      headIndex++
+      break
+    case 'ArrowLeft':
+      console.log('arrow left')
+      changeClownHead(headIndex)
+      headIndex--
+      break
+  }
+})
