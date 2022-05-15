@@ -28,35 +28,77 @@ console.log('Dress The Clown!')
 let head = document.getElementById('head')
 let body = document.getElementById('body')
 let shoes = document.getElementById('shoes')
-let imageCount = 6
-let clothingCount = 3
-let headIndex = 0
-let clothingIndex = 0
+let imageCount = 6 // number of images per part
+let clothes = ['head', 'body', 'shoes']
+let clothingCount = clothes.length // number of parts, 3
+// let headIndex = 0
+let clothingIndex = 0 // index per part, 3
+let clothesIndex = 0 // index per image per part, 6
 // console.log(head)
 
-function changeClownHead(headIndex) {
-  let headSrc = './images/head' + headIndex + '.png'
-  console.log(headSrc)
-  head.src = headSrc
+// function changeClownHead(headIndex) {
+//   let headSrc = './images/head' + headIndex + '.png'
+//   console.log(headSrc)
+//   head.src = headSrc
+// }
+
+function changeClothes(clothesIndex) {
+  let folder = './images/'
+  let part = ''
+  let fileExtension = '.png'
+  for (let i = 0; i < clothingCount; i++) {
+    console.log(i)
+    if (clothingIndex == i) {
+      part = clothes[i]
+      console.log('if = ' + part)
+    }
+  }
+
+  let clothesSrc = './images/' + part + clothesIndex + '.png'
+  // let clothesSrc = folder.concat(part, clothesIndex, fileExtension)
+  console.log(clothesSrc)
+  if (part == 'head') {
+    head.src = clothesSrc
+  }
+
+  console.log(head.src)
 }
 
+changeClothes(clothesIndex)
 document.addEventListener('keydown', function (e) {
   switch (e.key) {
+    // case 'ArrowRight':
+    //   console.log('arrow right')
+    //   if (headIndex >= imageCount) {
+    //     headIndex = 0
+    //   }
+    //   changeClownHead(headIndex)
+    //   headIndex++
+    //   break
+    // case 'ArrowLeft':
+    //   console.log('arrow left')
+    //   if (headIndex <= 0) {
+    //     headIndex = imageCount - 1
+    //   }
+    //   changeClownHead(headIndex)
+    //   headIndex--
+    //   break
+
     case 'ArrowRight':
       console.log('arrow right')
-      if (headIndex >= imageCount) {
-        headIndex = 0
+      if (clothesIndex >= imageCount) {
+        clothesIndex = 0
       }
-      changeClownHead(headIndex)
-      headIndex++
+      changeClothes(clothesIndex)
+      clothesIndex++
       break
     case 'ArrowLeft':
       console.log('arrow left')
-      if (headIndex <= 0) {
-        headIndex = imageCount - 1
+      if (clothesIndex <= 0) {
+        clothesIndex = imageCount - 1
       }
-      changeClownHead(headIndex)
-      headIndex--
+      changeClothes(clothesIndex)
+      clothesIndex--
       break
     case 'ArrowDown':
       console.log('arrow up')
