@@ -42,7 +42,7 @@ let clothesIndex = 0 // index per image per part, 6
 //   head.src = headSrc
 // }
 
-function changeClothes(clothesIndex) {
+function changeClothes(clothesIndex, clothingIndex) {
   let folder = './images/'
   let part = ''
   let fileExtension = '.png'
@@ -54,17 +54,21 @@ function changeClothes(clothesIndex) {
     }
   }
 
-  let clothesSrc = './images/' + part + clothesIndex + '.png'
-  // let clothesSrc = folder.concat(part, clothesIndex, fileExtension)
+  // let clothesSrc = './images/' + part + clothesIndex + '.png'
+  let clothesSrc = folder.concat(part, clothesIndex, fileExtension)
   console.log(clothesSrc)
   if (part == 'head') {
     head.src = clothesSrc
+  } else if (part == 'body') {
+    body.src = clothesSrc
+  } else if (part == 'shoes') {
+    shoes.src = clothesSrc
   }
 
   console.log(head.src)
 }
 
-changeClothes(clothesIndex)
+// changeClothes(clothesIndex)
 document.addEventListener('keydown', function (e) {
   switch (e.key) {
     // case 'ArrowRight':
@@ -89,7 +93,7 @@ document.addEventListener('keydown', function (e) {
       if (clothesIndex >= imageCount) {
         clothesIndex = 0
       }
-      changeClothes(clothesIndex)
+      changeClothes(clothesIndex, clothingIndex)
       clothesIndex++
       break
     case 'ArrowLeft':
@@ -97,7 +101,7 @@ document.addEventListener('keydown', function (e) {
       if (clothesIndex <= 0) {
         clothesIndex = imageCount - 1
       }
-      changeClothes(clothesIndex)
+      changeClothes(clothesIndex, clothingIndex)
       clothesIndex--
       break
     case 'ArrowDown':
