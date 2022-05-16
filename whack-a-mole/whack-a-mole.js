@@ -22,13 +22,22 @@ let scoreCount = 0
 let moleImage = document.getElementById('mole')
 let cell = document.getElementsByTagName('TD')[0].appendChild(moleImage)
 
-let count = 10
-let interval = setInterval(function () {
-  alert(`Game over! Your score: ${scoreCount}`)
-}, 1000)
+function startGame() {
+  showMole()
+  let count = 10
+  let interval = setInterval(function () {
+    document.getElementById('count').innerHTML = count
+    count--
+    if (count === 0) {
+      clearInterval(interval)
+      document.getElementById('count').innerHTML = 'Game over.'
+      alert(`Game over! Your score: ${scoreCount}`)
+    }
+  }, 1000)
+}
 
 // moleImage.onclick = setTimeout(gameTimer, 10000)
-moleImage.onclick = whackedMole
+// cell.addEventListener('click', startGame)
 
 function showMole() {
   let randomCell = getRandomInt(0, cellCount - 1)
