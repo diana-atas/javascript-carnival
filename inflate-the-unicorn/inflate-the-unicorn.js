@@ -6,6 +6,7 @@ console.log('Inflate The Unicorn!')
 
 let unicorns = document.getElementsByTagName('img')
 let isInflated = false
+let inflatedSound = new Audio('inflatedsound.mp3')
 // let stages = ["unicorn0", "unicorn1", "unicorn2", "unicorn3"]
 
 let unicorn0 = './images/unicorn-0.png'
@@ -42,6 +43,7 @@ function inflateUnicorn(e) {
       break
     default:
       isInflated = true
+      inflatedSound.play()
       console.log('default')
   }
 
