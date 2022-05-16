@@ -18,6 +18,7 @@ console.log('Whack-a-Mole!')
 // let grid = new Array(5)
 let cellCount = 25
 let cells = document.getElementsByTagName('TD')
+let scoreCount = 0
 
 console.log(cells)
 
@@ -40,6 +41,8 @@ function whackedMole(e) {
   console.log('you clicked the mole')
   let moleSound = new Audio('whack-audio.wav')
   moleSound.play()
+  scoreCount++
+  document.getElementById('score').innerHTML = 'Score: ' + scoreCount
   showMole()
 }
 
