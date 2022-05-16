@@ -19,22 +19,24 @@ console.log('Whack-a-Mole!')
 let cellCount = 25
 let cells = document.getElementsByTagName('TD')
 let scoreCount = 0
+let moleImage = document.getElementById('mole')
+let cell = document.getElementsByTagName('TD')[0].appendChild(moleImage)
 
-console.log(cells)
+let count = 10
+let interval = setInterval(function () {
+  alert(`Game over! Your score: ${scoreCount}`)
+}, 1000)
+
+// moleImage.onclick = setTimeout(gameTimer, 10000)
+moleImage.onclick = whackedMole
 
 function showMole() {
   let randomCell = getRandomInt(0, cellCount - 1)
-  let cell = document.getElementsByTagName('TD')[randomCell]
-  let moleImage = document.getElementById('mole')
-  cell.appendChild(moleImage)
+  cells[randomCell].appendChild(moleImage)
   moleImage.onclick = whackedMole
 
   console.log(randomCell)
-  // let currentText = document.createTextNode('random cell')
-  // cell.appendChild(currentText)
 }
-
-showMole()
 
 function whackedMole(e) {
   let cell = e.target
