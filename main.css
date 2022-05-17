@@ -10,6 +10,15 @@ h1 {
 	text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
+button {
+  background-color: lightpink;
+  margin: 10px;
+}
+
 table {
   margin-right: center;
   margin-left: center;
