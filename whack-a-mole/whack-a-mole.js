@@ -38,6 +38,8 @@ function startGame() {
       if (scoreCount > highScore) {
         highScore = scoreCount
         alert(`New high score! Your score: ${scoreCount}`)
+        document.getElementById('highScore').innerHTML =
+          'High score: ' + highScore
       } else {
         alert(`Game over! Your score: ${scoreCount}`)
       }
