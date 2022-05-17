@@ -29,7 +29,7 @@ function startGame() {
   showMole()
   let count = 10
   let interval = setInterval(function () {
-    document.getElementById('count').innerHTML = count
+    document.getElementById('count').innerHTML = 'Time left: ' + count
     count--
     if (count === 0) {
       clearInterval(interval)
