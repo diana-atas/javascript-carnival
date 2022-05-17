@@ -19,6 +19,7 @@ console.log('Whack-a-Mole!')
 let cellCount = 25
 let cells = document.getElementsByTagName('TD')
 let scoreCount = 0
+let highScore = 0
 let moleImage = document.getElementById('mole')
 let cell = document.getElementsByTagName('TD')[0].appendChild(moleImage)
 
@@ -31,7 +32,13 @@ function startGame() {
     if (count === 0) {
       clearInterval(interval)
       document.getElementById('count').innerHTML = 'Game over.'
-      alert(`Game over! Your score: ${scoreCount}`)
+
+      if (scoreCount > highScore) {
+        highScore = scoreCount
+        alert(`New high score! Your score: ${scoreCount}`)
+      } else {
+        alert(`Game over! Your score: ${scoreCount}`)
+      }
       scoreCount = 0
       document.getElementById('score').innerHTML = 'Score: ' + scoreCount
     }
