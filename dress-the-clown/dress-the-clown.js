@@ -28,7 +28,7 @@ console.log('Dress The Clown!')
 let head = document.getElementById('head')
 let body = document.getElementById('body')
 let shoes = document.getElementById('shoes')
-let imageCount = 6 // number of images per part
+let imageCount = 7 // number of images per part
 let clothes = ['head', 'body', 'shoes']
 let clothingCount = clothes.length // number of parts, 3
 // let headIndex = 0
