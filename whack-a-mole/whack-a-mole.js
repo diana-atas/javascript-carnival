@@ -22,6 +22,8 @@ let scoreCount = 0
 let highScore = 0
 let moleImage = document.getElementById('mole')
 let cell = document.getElementsByTagName('TD')[0].appendChild(moleImage)
+let randomCell
+let lastRandom = 0
 
 function startGame() {
   showMole()
@@ -49,11 +51,16 @@ function startGame() {
 // cell.addEventListener('click', startGame)
 
 function showMole() {
-  let randomCell = getRandomInt(0, cellCount - 1)
+  lastRandom = randomCell
+  console.log('lastRandom = ' + lastRandom)
+  randomCell = getRandomInt(0, cellCount - 1)
+  console.log('randomCell = ' + randomCell)
+  if (randomCell == lastRandom) {
+    randomCell = getRandomInt(0, cellCount - 1)
+    console.log('you got a duplicate random number!')
+  }
   cells[randomCell].appendChild(moleImage)
   moleImage.onclick = whackedMole
-
-  console.log(randomCell)
 }
 
 function whackedMole(e) {
