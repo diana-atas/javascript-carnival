@@ -61,8 +61,8 @@ function whackedMole(e) {
   console.log('you clicked the mole')
   let moleSound = new Audio('whack-audio.wav')
   moleSound.play()
-  document.getElementById('score').innerHTML = 'Score: ' + scoreCount
   scoreCount++
+  document.getElementById('score').innerHTML = 'Score: ' + scoreCount
   console.log(score)
   showMole()
 }
