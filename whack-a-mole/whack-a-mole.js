@@ -32,6 +32,8 @@ function startGame() {
       clearInterval(interval)
       document.getElementById('count').innerHTML = 'Game over.'
       alert(`Game over! Your score: ${scoreCount}`)
+      scoreCount = 0
+      document.getElementById('score').innerHTML = 'Score: ' + scoreCount
     }
   }, 1000)
 }
@@ -52,8 +54,9 @@ function whackedMole(e) {
   console.log('you clicked the mole')
   let moleSound = new Audio('whack-audio.wav')
   moleSound.play()
-  scoreCount++
   document.getElementById('score').innerHTML = 'Score: ' + scoreCount
+  scoreCount++
+  console.log(score)
   showMole()
 }
 
